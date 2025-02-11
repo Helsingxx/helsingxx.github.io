@@ -9,7 +9,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
         }
 
         .container {
@@ -17,65 +21,108 @@
             min-height: 100vh;
         }
 
-        /* Sidebar Styles */
+        /* Enhanced Sidebar */
         .sidebar {
-            width: 300px;
-            background-color: #f4f4f4;
-            padding: 20px;
+            width: 320px;
+            background-color: #f9ecec; /* Light crimson tint */
+            padding: 30px 25px;
             position: fixed;
             height: 100%;
+            border-right: 3px solid crimson;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
             display: block;
+            border: 3px solid crimson;
+        }
+
+        .sidebar h2 {
+            color: #333;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .sidebar p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .sidebar h3 {
+            color: crimson;
+            margin: 25px 0 15px;
+            font-size: 1.3rem;
         }
 
         .social-links {
             list-style: none;
-            margin-top: 20px;
         }
 
         .social-links li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .social-links a {
             text-decoration: none;
-            color: #333;
+            color: #444;
+            font-weight: 500;
+            display: block;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
         }
 
-        /* Main Content Styles */
+        .social-links a:hover {
+            background-color: rgba(220, 20, 60, 0.1);
+            color: crimson;
+        }
+
+        /* Main Content */
         .main-content {
             flex: 1;
-            margin-left: 300px;
-            padding: 40px;
+            margin-left: 320px;
+            padding: 50px;
         }
 
         .post-entry {
-            margin-bottom: 30px;
-            padding: 20px;
+            margin-bottom: 35px;
+            padding: 25px;
             background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            transition: transform 0.3s ease;
+            border-left: 4px solid transparent;
         }
 
         .post-entry:hover {
-            transform: translateY(-2px);
-            transition: transform 0.3s ease;
+            transform: translateX(10px);
+            border-left-color: crimson;
         }
 
         .post-title {
-            color: #333;
-            margin-bottom: 10px;
+            color: #222;
+            margin-bottom: 12px;
+            font-size: 1.5rem;
         }
 
         .post-description {
             color: #666;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* Links */
+        a {
+            text-decoration: none;
+            color: crimson;
+        }
+
+        a:hover {
+            color: #a81034;
         }
 
         /* Responsive Design */
@@ -88,10 +135,22 @@
                 width: 100%;
                 position: relative;
                 height: auto;
+                padding: 25px 20px;
+                border-right: none;
+                border-bottom: 3px solid crimson;
+            }
+
+            .profile-img {
+                width: 140px;
+                height: 140px;
             }
 
             .main-content {
                 margin-left: 0;
+                padding: 30px 20px;
+            }
+
+            .post-entry {
                 padding: 20px;
             }
         }
@@ -102,14 +161,16 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <img src="your-photo.jpg" alt="Your Name" class="profile-img">
-            <h2>Your Name</h2>
-            <p>Short bio or description about yourself...</p>
+            <h2>Helsing</h2>
+            <p>Malware developer & Technical Writer<br>
+            Passionate about creating user-friendly experiences and sharing knowledge through detailed tutorials.</p>
             
             <h3>Connect with Me</h3>
             <ul class="social-links">
                 <li><a href="#">Twitter</a></li>
                 <li><a href="#">LinkedIn</a></li>
                 <li><a href="#">GitHub</a></li>
+                <li><a href="#">Email</a></li>
             </ul>
         </aside>
 
@@ -117,19 +178,19 @@
         <main class="main-content">
             <article class="post-entry">
                 <a href="post1.html">
-                    <h2 class="post-title">First Blog Post Title</h2>
-                    <p class="post-description">This is a brief description of the blog post content. It should entice readers to click through to read the full article.</p>
+                    <h2 class="post-title">Understanding CSS Grid Systems</h2>
+                    <p class="post-description">A comprehensive guide to modern layout techniques, covering both fundamental concepts and advanced implementation strategies.</p>
                 </a>
             </article>
 
             <article class="post-entry">
                 <a href="post2.html">
-                    <h2 class="post-title">Second Blog Post Title</h2>
-                    <p class="post-description">Another interesting blog post description that makes people want to read more about this topic.</p>
+                    <h2 class="post-title">JavaScript Best Practices</h2>
+                    <p class="post-description">Learn professional coding standards and patterns to write cleaner, more maintainable JavaScript code.</p>
                 </a>
             </article>
 
-            <!-- Add more posts as needed -->
+            <!-- Add more posts -->
         </main>
     </div>
 </body>
