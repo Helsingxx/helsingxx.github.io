@@ -3,28 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malware Analysis Reports</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>My Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 300px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .social-links {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .social-links li {
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            margin-left: 300px;
+            padding: 40px;
+        }
+
+        .post-entry {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .post-entry:hover {
+            transform: translateY(-2px);
+            transition: transform 0.3s ease;
+        }
+
+        .post-title {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .post-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="profile">
-                <img src="profile.jpg" alt="Your Photo">
-                <h2>Your Name</h2>
-                <p>Security Researcher | Malware Analyst</p>
-                <p>Email: your-email@example.com</p>
-                <p>Twitter: @yourtwitterhandle</p>
-            </div>
-        </aside>
-        <main class="content">
-            <h1>Malware Analysis Reports</h1>
-            <ul class="report-links">
-                <li><a href="report1.html">Report 1</a></li>
-                <li><a href="report2.html">Report 2</a></li>
-                <li><a href="report3.html">Report 3</a></li>
-                <!-- Add more reports as needed -->
+            <img src="your-photo.jpg" alt="Your Name" class="profile-img">
+            <h2>Your Name</h2>
+            <p>Short bio or description about yourself...</p>
+            
+            <h3>Connect with Me</h3>
+            <ul class="social-links">
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">LinkedIn</a></li>
+                <li><a href="#">GitHub</a></li>
             </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <article class="post-entry">
+                <a href="post1.html">
+                    <h2 class="post-title">First Blog Post Title</h2>
+                    <p class="post-description">This is a brief description of the blog post content. It should entice readers to click through to read the full article.</p>
+                </a>
+            </article>
+
+            <article class="post-entry">
+                <a href="post2.html">
+                    <h2 class="post-title">Second Blog Post Title</h2>
+                    <p class="post-description">Another interesting blog post description that makes people want to read more about this topic.</p>
+                </a>
+            </article>
+
+            <!-- Add more posts as needed -->
         </main>
     </div>
 </body>
