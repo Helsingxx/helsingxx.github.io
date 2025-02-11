@@ -6,11 +6,11 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #e0e0e0;
     color: #333;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 100vh;
 }
 
@@ -23,7 +23,7 @@ body {
 
 .sidebar {
     width: 25%;
-    background-color: #007bff;
+    background-color: #555;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -39,10 +39,30 @@ body {
 .content {
     width: 75%;
     padding: 20px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
 }
 
 .report h1, .report h2 {
     color: #007bff;
+}
+
+.report-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.report-links li {
+    margin: 10px 0;
+}
+
+.report-links a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.report-links a:hover {
+    text-decoration: underline;
 }
 
 .pagination {
