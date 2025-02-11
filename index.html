@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Blog</title>
+    <title>Dark Tech Blog</title>
     <style>
         * {
             margin: 0;
@@ -13,18 +13,22 @@
         }
 
         body {
-            background-color: #f0f0f0;
+            background-color: #121212;
+            color: #e0e0e0;
+            min-height: 100vh;
+            position: relative;
+            padding-bottom: 60px; /* Space for footer */
         }
 
         .container {
             display: flex;
-            min-height: 100vh;
+            min-height: calc(100vh - 80px); /* Account for footer */
         }
 
-        /* Enhanced Sidebar */
+        /* Darker Sidebar */
         .sidebar {
             width: 320px;
-            background-color: #f9ecec; /* Light crimson tint */
+            background-color: #1a1a1a;
             padding: 30px 25px;
             position: fixed;
             height: 100%;
@@ -40,61 +44,20 @@
             border: 3px solid crimson;
         }
 
-        .sidebar h2 {
-            color: #333;
-            font-size: 1.8rem;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .sidebar p {
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        .sidebar h3 {
-            color: crimson;
-            margin: 25px 0 15px;
-            font-size: 1.3rem;
-        }
-
-        .social-links {
-            list-style: none;
-        }
-
-        .social-links li {
-            margin-bottom: 12px;
-        }
-
-        .social-links a {
-            text-decoration: none;
-            color: #444;
-            font-weight: 500;
-            display: block;
-            padding: 8px 15px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: rgba(220, 20, 60, 0.1);
-            color: crimson;
-        }
-
-        /* Main Content */
+        /* Main Content Dark Theme */
         .main-content {
             flex: 1;
             margin-left: 320px;
             padding: 50px;
+            background-color: #181818;
         }
 
         .post-entry {
             margin-bottom: 35px;
             padding: 25px;
-            background-color: #fff;
+            background-color: #252525;
             border-radius: 6px;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
             border-left: 4px solid transparent;
         }
 
@@ -103,26 +66,42 @@
             border-left-color: crimson;
         }
 
-        .post-title {
-            color: #222;
-            margin-bottom: 12px;
-            font-size: 1.5rem;
+        /* Footer Bar */
+        .footer-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #1a1a1a;
+            border-top: 2px solid crimson;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-style: italic;
         }
 
-        .post-description {
-            color: #666;
-            line-height: 1.7;
-            font-size: 1.05rem;
+        /* Pagination Controls */
+        .pagination {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
 
-        /* Links */
-        a {
-            text-decoration: none;
+        .page-btn {
+            padding: 10px 25px;
+            background-color: #252525;
+            border: 1px solid crimson;
             color: crimson;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
         }
 
-        a:hover {
-            color: #a81034;
+        .page-btn:hover {
+            background-color: crimson;
+            color: white;
         }
 
         /* Responsive Design */
@@ -135,14 +114,8 @@
                 width: 100%;
                 position: relative;
                 height: auto;
-                padding: 25px 20px;
                 border-right: none;
                 border-bottom: 3px solid crimson;
-            }
-
-            .profile-img {
-                width: 140px;
-                height: 140px;
             }
 
             .main-content {
@@ -150,8 +123,9 @@
                 padding: 30px 20px;
             }
 
-            .post-entry {
-                padding: 20px;
+            .footer-bar {
+                position: relative;
+                margin-top: 40px;
             }
         }
     </style>
@@ -160,38 +134,48 @@
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
-            <img src="your-photo.jpg" alt="Your Name" class="profile-img">
-            <h2>Helsing</h2>
-            <p>Malware developer & Technical Writer<br>
-            Passionate about creating user-friendly experiences and sharing knowledge through detailed tutorials.</p>
+            <img src="profile.jpg" alt="John Doe" class="profile-img">
+            <h2>John Doe</h2>
+            <p>Tech Enthusiast & Software Developer<br>
+            Exploring the depths of programming and sharing knowledge.</p>
             
-            <h3>Connect with Me</h3>
+            <h3>Connect</h3>
             <ul class="social-links">
                 <li><a href="#">Twitter</a></li>
                 <li><a href="#">LinkedIn</a></li>
                 <li><a href="#">GitHub</a></li>
-                <li><a href="#">Email</a></li>
             </ul>
         </aside>
 
         <!-- Main Content -->
         <main class="main-content">
+            <!-- Post 1 -->
             <article class="post-entry">
                 <a href="post1.html">
-                    <h2 class="post-title">Understanding CSS Grid Systems</h2>
-                    <p class="post-description">A comprehensive guide to modern layout techniques, covering both fundamental concepts and advanced implementation strategies.</p>
+                    <h2>Modern Web Development Trends</h2>
+                    <p>Exploring the latest frameworks and tools shaping web development in 2024.</p>
                 </a>
             </article>
 
+            <!-- Post 2 -->
             <article class="post-entry">
                 <a href="post2.html">
-                    <h2 class="post-title">JavaScript Best Practices</h2>
-                    <p class="post-description">Learn professional coding standards and patterns to write cleaner, more maintainable JavaScript code.</p>
+                    <h2>CSS Architecture Patterns</h2>
+                    <p>Best practices for maintaining scalable and maintainable CSS codebases.</p>
                 </a>
             </article>
 
-            <!-- Add more posts -->
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="page-btn">Previous</button>
+                <button class="page-btn">Next</button>
+            </div>
         </main>
     </div>
+
+    <!-- Footer Motto Bar -->
+    <footer class="footer-bar">
+        "Code is Poetry - Turning Logic into Art"
+    </footer>
 </body>
 </html>
