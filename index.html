@@ -1,247 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark Tech Blog</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #121212;
-            color: #e0e0e0;
-            min-height: 100vh;
-            position: relative;
-            padding-bottom: 60px;
-        }
-
-        .container {
-            display: flex;
-            min-height: calc(100vh - 80px);
-        }
-
-        /* Enhanced Sidebar with Purple Accents */
-        .sidebar {
-            width: 320px;
-            background-color: #1a1a1a;
-            padding: 30px 25px;
-            position: fixed;
-            height: 100%;
-            border-right: 3px solid #8A2BE2; /* Purple border */
-        }
-
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            margin: 0 auto 25px;
-            display: block;
-            border: 3px solid #8A2BE2;
-            box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
-        }
-
-        .sidebar h2 {
-            color: #e0e0e0;
-            font-size: 1.8rem;
-            text-align: center;
-            margin: 25px 0;
-            letter-spacing: 1px;
-        }
-
-        .sidebar p {
-            color: #b0b0b0;
-            line-height: 1.8;
-            margin: 25px 0;
-            padding: 15px;
-            background: #252525;
-            border-radius: 8px;
-            border-left: 3px solid #8A2BE2;
-        }
-
-        .sidebar h3 {
-            color: #8A2BE2;
-            margin: 35px 0 20px;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .social-links {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .social-links li {
-            margin: 15px 0;
-            padding: 12px;
-            background: #252525;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
-
-        .social-links li:hover {
-            transform: translateX(5px);
-            border-left: 3px solid crimson;
-        }
-
-        .social-links a {
-            text-decoration: none;
-            color: #e0e0e0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Main Content with White Text */
-        .main-content {
-            flex: 1;
-            margin-left: 320px;
-            padding: 50px;
-            background-color: #181818;
-        }
-
-        .post-entry {
-            margin-bottom: 35px;
-            padding: 25px;
-            background-color: #252525;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
-        }
-
-        .post-entry:hover {
-            transform: translateX(10px);
-            border-left-color: crimson;
-        }
-
-        .post-title {
-            color: #ffffff; /* Pure white */
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .post-description {
-            color: #d0d0d0; /* Off-white */
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        /* Purple Accents */
-        a {
-            color: #8A2BE2;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: crimson;
-        }
-
-        /* Footer with Gradient */
-        .footer-bar {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: 60px;
-            background: linear-gradient(90deg, #8A2BE2 0%, crimson 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-style: italic;
-            letter-spacing: 1px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                width: 100%;
-                position: relative;
-                height: auto;
-                border-right: none;
-                border-bottom: 3px solid #8A2BE2;
-            }
-
-            .main-content {
-                margin-left: 0;
-                padding: 30px 20px;
-            }
-
-            .footer-bar {
-                position: relative;
-                margin-top: 40px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helsing - Maldev</title>
+  <style>
+    /* Global resets and typography */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    html, body {
+      min-height: 100%;
+    }
+    
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      position: relative;
+    }
+    
+    /* Wrapper to handle footer placement */
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    .container {
+      flex: 1;
+      display: flex;
+    }
+    
+    /* Sidebar styling */
+    .sidebar {
+      width: 320px;
+      background-color: #1a1a1a;
+      padding: 30px 25px;
+      overflow-y: auto;
+      border-right: 3px solid var(--bar-color, crimson); /* initial color */
+      transition: border-color 2s ease;
+    }
+    
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin: 0 auto 30px;
+      display: block;
+      border: 3px solid var(--bar-color, crimson);
+      box-shadow: 0 0 20px rgba(220,20,60,0.2);
+    }
+    
+    .sidebar h2 {
+      color: #ffffff;
+      font-size: 1.8rem;
+      text-align: center;
+      margin: 25px 0;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(220,20,60,0.3);
+      position: relative;
+    }
+    
+    .sidebar h2:after {
+      content: '';
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 80%;
+      background-color: var(--bar-color, crimson);
+      transition: background-color 2s ease;
+    }
+    
+    .sidebar .bio {
+      color: #d0d0d0;
+      line-height: 1.8;
+      margin: 30px 0;
+      padding: 20px;
+      background: #252525;
+      border-radius: 8px;
+      border-left: 3px solid var(--bar-color, crimson);
+      position: relative;
+    }
+    
+    .sidebar .bio .title {
+      border-bottom: 1px solid var(--bar-color, crimson);
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .sidebar h3 {
+      color: var(--bar-color, crimson);
+      margin: 35px 0 25px;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 2s ease;
+    }
+    
+    .social-links {
+      list-style: none;
+      margin: 25px 0;
+    }
+    
+    .social-links li {
+      margin: 18px 0;
+      padding: 15px;
+      background: #252525;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      border: 1px solid #333;
+    }
+    
+    .social-links li:hover {
+      transform: translateX(8px);
+      border-left: 3px solid var(--bar-color, crimson);
+      background: #2d2d2d;
+      transition: border-color 2s ease;
+    }
+    
+    /* Main content area */
+    .main-content {
+      flex: 1;
+      padding: 50px;
+      background-color: #181818;
+    }
+    
+    /* Container to center posts */
+    .posts-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .post-entry {
+      margin-bottom: 35px;
+      padding: 25px;
+      background-color: #252525;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      border-left: 4px solid var(--bar-color, crimson);
+      transition: border-color 2s ease;
+    }
+    
+    .post-entry:hover {
+      transform: translateX(10px);
+      border-left-color: #b01030;
+    }
+    
+    .post-title {
+      color: #ffffff;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+    
+    .post-description {
+      color: #d0d0d0;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+    
+    /* Pagination buttons styled in crimson */
+    .pagination {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+    
+    .page-btn {
+      padding: 12px 30px;
+      background-color: var(--bar-color, crimson);
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      transition: background-color 2s ease;
+    }
+    
+    .page-btn:hover {
+      background-color: #b01030;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(220,20,60,0.4);
+    }
+    
+    /* Footer styling */
+    .footer-bar {
+      height: 80px;
+      background: var(--bar-color, crimson); /* initial color */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-style: italic;
+      letter-spacing: 1.5px;
+      font-size: 1.1rem;
+      border-top: 3px solid var(--bar-color, crimson);
+      transition: border-color 2s ease, background-color 2s ease;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 3px solid var(--bar-color, crimson);
+      }
+      
+      .main-content {
+        padding: 30px 20px;
+      }
+      
+      .footer-bar {
+        height: 60px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="wrapper">
     <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <img src="helsing.png" alt="John Doe" class="profile-img">
-            <h2>John Doe</h2>
-            <p>Tech Enthusiast & Software Developer<br><br>
-            Exploring the depths of programming and sharing knowledge through detailed technical articles.</p>
-            
-            <h3>Connect With Me</h3>
-            <ul class="social-links">
-                <li>
-                    <a href="#">
-                        <ion-icon name="logo-twitter"></ion-icon>
-                        Twitter
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <ion-icon name="logo-linkedin"></ion-icon>
-                        LinkedIn
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <ion-icon name="logo-github"></ion-icon>
-                        GitHub
-                    </a>
-                </li>
-            </ul>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Post 1 -->
-            <article class="post-entry">
-                <a href="post1.html">
-                    <h2 class="post-title">Modern Web Development Trends</h2>
-                    <p class="post-description">Exploring the latest frameworks and tools shaping web development in 2024, with focus on performance and accessibility.</p>
-                </a>
-            </article>
-
-            <!-- Post 2 -->
-            <article class="post-entry">
-                <a href="post2.html">
-                    <h2 class="post-title">CSS Architecture Patterns</h2>
-                    <p class="post-description">Best practices for maintaining scalable and maintainable CSS codebases in large projects.</p>
-                </a>
-            </article>
-        </main>
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <img src="helsing.png" alt="helsing" class="profile-img">
+        <h2>Helsing</h2>
+        <div class="bio">
+          <p class="title">Malware Developer & Tech Writer</p>
+          <p>Passionate about Malware Development/Analysis, cracking and hacking. Red team sprited.</p>
+        </div>
+        <h3>Connect With Me</h3>
+        <ul class="social-links">
+          <li><a href="https://x.com/HelsingExW"><ion-icon name="logo-twitter"></ion-icon> Twitter</a></li>
+          <li><a href="https://www.linkedin.com/in/el-mehdi-amrati-8653b2339/"><ion-icon name="logo-linkedin"></ion-icon> LinkedIn</a></li>
+          <li><a href="https://github.com/Helsingxx"><ion-icon name="logo-github"></ion-icon> GitHub</a></li>
+        </ul>
+      </aside>
+      
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="posts-container">
+          <!-- Post 1 -->
+          <article class="post-entry">
+            <a href="post1.html">
+              <h2 class="post-title">TO BE WRITTEN</h2>
+              <p class="post-description">
+                BLANK.
+              </p>
+            </a>
+          </article>
+          
+          <!-- Post 2 -->
+          <article class="post-entry">
+            <a href="post2.html">
+              <h2 class="post-title">TO BE WRITTEN</h2>
+              <p class="post-description">
+                BLANK.
+              </p>
+            </a>
+          </article>
+          
+          <!-- Pagination -->
+          <div class="pagination">
+            <button class="page-btn">Previous</button>
+            <button class="page-btn">Next</button>
+          </div>
+        </div>
+      </main>
     </div>
-
-    <!-- Footer Motto Bar -->
+    
+    <!-- Footer -->
     <footer class="footer-bar">
-        "Innovation Through Code - Building the Future Line by Line"
+        PWN • EAT • PWN • REPEAT
     </footer>
+  </div>
 
-    <!-- Ionicons for social icons -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- JavaScript for animated borders -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const colors = [
+        "crimson", "#DC143C", "#C71585", "#8A2BE2", "purple"
+      ];
+      let index = 0;
+      const updateBorders = () => {
+        index = (index + 1) % colors.length;
+        const newColor = colors[index];
+        document.documentElement.style.setProperty('--bar-color', newColor);
+      };
+      setInterval(updateBorders, 4000); // change color every 4 seconds
+    });
+  </script>
+  
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
